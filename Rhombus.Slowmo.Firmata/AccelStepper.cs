@@ -1,4 +1,4 @@
-﻿namespace Rhombus.Slowmo;
+﻿namespace Rhombus.Slowmo.Firmata;
 using System;
 using Iot.Device.Arduino;
 
@@ -106,8 +106,8 @@ public class AccelStepper() : ExtendedCommandHandler(SupportedMode.Stepper) {
         commandSequence.WriteByte(FirmataCommandSequence.EndSysex);
         var reply = this.SendCommandAndWait(commandSequence);
 
-        return (reply[0] != (byte)FirmataSysexCommand.ACCELSTEPPER_DATA ||
-                reply[1] != (byte)AccelStepperCommand.ReportPosition)
+        return reply[0] != (byte)FirmataSysexCommand.ACCELSTEPPER_DATA ||
+                reply[1] != (byte)AccelStepperCommand.ReportPosition
             ? throw new InvalidOperationException("Did not receive the correct response")
             : FirmataCommandSequence.DecodeInt32(reply, 2);
 

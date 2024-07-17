@@ -1,4 +1,4 @@
-﻿namespace Rhombus.Slowmo;
+﻿namespace Rhombus.Slowmo.Firmata;
 using System;
 using Iot.Device.Arduino;
 

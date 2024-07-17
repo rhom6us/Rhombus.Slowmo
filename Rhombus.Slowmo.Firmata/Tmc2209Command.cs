@@ -1,4 +1,4 @@
-﻿namespace Rhombus.Slowmo;
+﻿namespace Rhombus.Slowmo.Firmata;
 
 public enum Tmc2209Command {
     Setup=0,

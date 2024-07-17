@@ -1,7 +1,6 @@
-﻿namespace Rhombus.Slowmo;
+﻿namespace Rhombus.Slowmo.Firmata;
 
-public enum AccelStepperCommand : byte
-{
+public enum AccelStepperCommand : byte {
     Config = 0x00,
     Zero = 0x01,
     Step = 0x02,

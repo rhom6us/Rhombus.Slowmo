@@ -1,4 +1,4 @@
-﻿namespace Rhombus.Slowmo;
+﻿namespace Rhombus.Slowmo.Firmata;
 using System;
 using Iot.Device.Arduino;
 
@@ -31,7 +31,7 @@ internal static class FirmataExtensions {
         var result = (int)Math.Truncate(input);
         exponent += 11;
 
-        commandSequence.WriteByte((byte)((result) & 0x7F));
+        commandSequence.WriteByte((byte)(result & 0x7F));
         commandSequence.WriteByte((byte)((result >> 7) & 0x7F));
         commandSequence.WriteByte((byte)((result >> 14) & 0x7F));
         commandSequence.WriteByte((byte)(((result >> 21) & 0x03) | ((exponent & 0x0F) << 2) | ((sign & 0x01) << 6)));

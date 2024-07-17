@@ -1,4 +1,4 @@
-﻿namespace Rhombus.Slowmo;
+﻿namespace Rhombus.Slowmo.Firmata;
 
 public enum AccelStepperInterface : byte {
     Driver = 0b001_0000,

@@ -1,4 +1,4 @@
-﻿namespace Rhombus.Slowmo;
+﻿namespace Rhombus.Slowmo.Firmata;
 
 public enum FirmataSysexCommand : byte {
     ACCELSTEPPER_DATA = 0x62,
