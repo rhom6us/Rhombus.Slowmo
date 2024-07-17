@@ -1,0 +1,3 @@
+[submodule "NikonCSWrapper"]
+	path = NikonCSWrapper
+	url = https://github.com/1TTT9/NikonCSWrapper.git
