@@ -28,9 +28,21 @@ void setup()
   digitalWrite(EN_PIN, LOW);
 }
 
+void wait_movement() {
+  auto left = stepper.distanceToGo();
+  while (left > 0) {
+    // Serial.print(left);
+    // Serial.print('\n');
+    stepper.run();
+    left = stepper.distanceToGo();
+  }
+  // Serial.print(0);
+  Serial.print('\n');
+  Serial.flush();
+}
 
 void loop() {
-  stepper.run();
+  // stepper.run();
   if (!Serial.available()) {
     return;
   }
@@ -39,58 +51,78 @@ void loop() {
 
   switch (command) {
 
-    case 'm': //raw position
+    /******* MOVE RELATIVE (m) *******/
+    case 'm':
       stepper.move(Serial.parseInt());
+      wait_movement();
       break;
-    case 'M': // hour position
+    case 'M':
       stepper.move(HOUR_TO_USTEPS(Serial.parseFloat()));
+      wait_movement();
       break;
 
-    case 't': //raw position
+      /******* MOVE ABSOLUTE (t) *******/
+    case 't':
       stepper.moveTo(Serial.parseInt());
+      wait_movement();
       break;
-    case 'T': // hour position
+    case 'T':
       stepper.moveTo(HOUR_TO_USTEPS(Serial.parseFloat()));
+      wait_movement();
       break;
 
-    case 's': // speed
+      /******* SET SPEED (s) *******/
+    case 's':
       stepper.setMaxSpeed(Serial.parseInt());
+      Serial.println();
       break;
-    case 'S': // speed in hours
+    case 'S':
       stepper.setMaxSpeed(HOUR_TO_USTEPS(Serial.parseFloat()));
+      Serial.println();
       break;
 
-    case 'a': // acceleration
+      /******* SET ACCELERATION (a) *******/
+    case 'a':
       stepper.setAcceleration(Serial.parseInt());
+      Serial.println();
       break;
-    case 'A': // acceleration in hours
+    case 'A':
       stepper.setAcceleration(HOUR_TO_USTEPS(Serial.parseFloat()));
+      Serial.println();
       break;
 
-    case 'z':
+      /******* SET POSITION (p) *******/
+    case 'p':
       stepper.setCurrentPosition(Serial.parseInt());
+      Serial.println();
       break;
-    case 'Z':
+    case 'P':
       stepper.setCurrentPosition(HOUR_TO_USTEPS(Serial.parseFloat()));
+      Serial.println();
       break;
 
-    case 'p': //report raw position
+      /******* GET POSITION (n) *******/
+    case 'n': //report raw position
       Serial.println(stepper.currentPosition());
       break;
-    case 'P': //report hour position
-      Serial.println(-USTEPS_TO_HOUR(stepper.currentPosition()));
+    case 'N': //report hour position
+      Serial.println(USTEPS_TO_HOUR(stepper.currentPosition()));
       break;
 
-    case 'r': //report raw remaining
+      /******* GET REMAINING (r) *******/
+    case 'r':
       Serial.println(stepper.distanceToGo());
       break;
-    case 'R': //report hour remaining
+    case 'R':
       Serial.println(USTEPS_TO_HOUR(stepper.distanceToGo()));
       break;
 
+
+      /**********************************/
     default:
       Serial.print("wtf mate");
       break;
   }
+
 
 }
