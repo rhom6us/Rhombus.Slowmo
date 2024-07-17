@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Rhombus.Slowmo\Rhombus.Slowmo.csproj" />
+    <ProjectReference Include="..\Rhombus.Slowmo.Firmata\Rhombus.Slowmo.Firmata.csproj" />
   </ItemGroup>
 
 </Project>
