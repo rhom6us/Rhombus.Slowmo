@@ -7,11 +7,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rhombus.Slowmo.Firmata", "R
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormsApp1", "WinFormsApp1\WinFormsApp1.csproj", "{3AEE4EFD-A1B2-4F06-AFAD-D3251DF8269A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rhombus.Slowmo.Nikon", "Rhombus.Slowmo.Nikon\Rhombus.Slowmo.Nikon.csproj", "{5ED2D38D-78A6-419A-A2A3-410F52117605}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rhombus.Slowmo.Nikon", "Rhombus.Slowmo.Nikon\Rhombus.Slowmo.Nikon.csproj", "{5ED2D38D-78A6-419A-A2A3-410F52117605}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nikoncswrapper", "NikonCSWrapper\src\nikoncswrapper\nikoncswrapper.csproj", "{AADE1DF5-4C46-4760-B72B-474D90336F5B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nikoncswrapper2", "NikonCSWrapper\src\nikoncswrapper\nikoncswrapper2.csproj", "{AADE1DF5-4C46-4760-B72B-474D90336F5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rhombus.Slowmo", "Rhombus.Slowmo\Rhombus.Slowmo.csproj", "{2178E248-6CEA-465C-B825-A7EB24154C63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rhombus.Slowmo", "Rhombus.Slowmo\Rhombus.Slowmo.csproj", "{2178E248-6CEA-465C-B825-A7EB24154C63}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{8732DE7A-B5E1-41A4-98F8-B3ADF6D6D1E7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "meh", "meh", "{80625340-3DDB-419B-9D0F-5766568EF616}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,9 +43,17 @@ Global
 		{2178E248-6CEA-465C-B825-A7EB24154C63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2178E248-6CEA-465C-B825-A7EB24154C63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2178E248-6CEA-465C-B825-A7EB24154C63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8732DE7A-B5E1-41A4-98F8-B3ADF6D6D1E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8732DE7A-B5E1-41A4-98F8-B3ADF6D6D1E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8732DE7A-B5E1-41A4-98F8-B3ADF6D6D1E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8732DE7A-B5E1-41A4-98F8-B3ADF6D6D1E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C1BB1E95-EE39-4A61-9874-F722926FCB87} = {80625340-3DDB-419B-9D0F-5766568EF616}
+		{3AEE4EFD-A1B2-4F06-AFAD-D3251DF8269A} = {80625340-3DDB-419B-9D0F-5766568EF616}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B835D578-C94F-4C5F-9009-E0EC9AD67BDB}

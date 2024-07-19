@@ -3,6 +3,7 @@ using RJCP.IO.Ports;
 
 public class Stepper : IDisposable, IAsyncDisposable {
     private readonly SerialPortStream _port;
+    public Stepper(int baud = 115200) : this(SerialPortStream.GetPortNames().Single(), baud) { }
     public Stepper(string port, int baud = 115200) : this(new SerialPortStream(port, baud)) { }
 
     public Stepper(SerialPortStream port) {
@@ -12,9 +13,6 @@ public class Stepper : IDisposable, IAsyncDisposable {
         }
     }
 
-    public async ValueTask DisposeAsync() => await _port.DisposeAsync();
-
-    public void Dispose() => _port.Dispose();
 
 
     private async Task SendMessage(char command, long µSteps) {
@@ -60,4 +58,30 @@ public class Stepper : IDisposable, IAsyncDisposable {
     public Task SetAcceleration(long µSteps) => this.SendMessage('a', µSteps);
 
     public Task SetAcceleration(TimeSpan time) => this.SendMessage('A', time);
+
+    #region IDisposable
+
+    protected virtual void Dispose(bool disposing) {
+        if (disposing) {
+            _port.Dispose();
+        }
+    }
+
+    /// <inheritdoc />
+    public void Dispose() {
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
+    protected virtual async ValueTask DisposeAsyncCore() {
+        await _port.DisposeAsync();
+    }
+
+    /// <inheritdoc />
+    public async ValueTask DisposeAsync() {
+        await DisposeAsyncCore();
+        GC.SuppressFinalize(this);
+    }
+
+    #endregion
 }
