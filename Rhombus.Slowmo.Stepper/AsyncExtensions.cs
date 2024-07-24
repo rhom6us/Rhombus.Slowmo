@@ -1,4 +1,4 @@
-﻿namespace Rhombus.Slowmo;
+﻿namespace Rhombus.Slowmo.Stepper;
 
 internal static class AsyncExtensions {
     public static System.Runtime.CompilerServices.TaskAwaiter GetAwaiter(this System.Threading.CancellationToken cancellationToken) {

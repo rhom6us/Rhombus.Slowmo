@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using Nikon;
 using Rhombus.Slowmo;
 using Rhombus.Slowmo.Nikon;
+using Rhombus.Slowmo.Stepper;
 
 Console.WriteLine(0);
 

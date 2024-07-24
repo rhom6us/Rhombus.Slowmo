@@ -1,5 +1,6 @@
-﻿namespace Rhombus.Slowmo;
-using RJCP.IO.Ports;
+﻿using RJCP.IO.Ports;
+
+namespace Rhombus.Slowmo.Stepper;
 
 internal static class SerialPortStreamExtensions {
     public static Task<string> ReadLineAsync(this SerialPortStream port) {

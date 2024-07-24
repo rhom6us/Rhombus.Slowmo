@@ -1,5 +1,6 @@
-﻿namespace Rhombus.Slowmo;
-using RJCP.IO.Ports;
+﻿using RJCP.IO.Ports;
+
+namespace Rhombus.Slowmo.Stepper;
 
 public class Stepper : IDisposable, IAsyncDisposable {
     private readonly SerialPortStream _port;

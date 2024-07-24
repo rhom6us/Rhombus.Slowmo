@@ -11,7 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\NikonCSWrapper\src\nikoncswrapper\nikoncswrapper2.csproj" />
     <ProjectReference Include="..\Rhombus.Slowmo.Nikon\Rhombus.Slowmo.Nikon.csproj" />
-    <ProjectReference Include="..\Rhombus.Slowmo\Rhombus.Slowmo.csproj" />
+    <ProjectReference Include="..\Rhombus.Slowmo.Stepper\Rhombus.Slowmo.Stepper.csproj" />
   </ItemGroup>
 
 </Project>
