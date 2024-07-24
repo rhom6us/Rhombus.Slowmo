@@ -20,12 +20,19 @@ void setup()
   pinMode(EN_PIN, OUTPUT);
   digitalWrite(EN_PIN, HIGH);
   Serial.begin(115200);
-  while (!Serial);
+  // while (!Serial);
   stepper.enableOutputs();
   stepper.setMaxSpeed(10000);
   stepper.setAcceleration(250);
   stepper.setCurrentPosition(0);
   digitalWrite(EN_PIN, LOW);
+
+// /****************************************/
+//     stepper.setMaxSpeed(10000);
+//   stepper.setAcceleration(250);
+//   stepper.setCurrentPosition(0);
+//   stepper.moveTo(1000);
+// /****************************************/
 }
 
 void wait_movement() {
@@ -41,6 +48,14 @@ void wait_movement() {
   Serial.flush();
 }
 
+void loopx(){
+  if (stepper.distanceToGo() == 0) {
+
+    stepper.moveTo(-stepper.currentPosition());
+  }
+
+  stepper.run();
+}
 void loop() {
   // stepper.run();
   if (!Serial.available()) {
