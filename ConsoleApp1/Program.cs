@@ -15,7 +15,7 @@ const byte focusCount = 20;
 const byte exposureCount = 3;
 const int focusRange = 1000;
 const int focusStep = focusRange / (focusCount-1);
-var rotationStep = TimeSpan.FromHours(12);
+var rotationStep = TimeSpan.FromMinutes(30);
 
 var saveQueue = new BlockingCollection<(string filename, NikonImage image)>();
 var saveTask = RunSaveQueue();
@@ -27,38 +27,32 @@ Directory.CreateDirectory(path);
 
 await using var stepper = new Stepper();
 using (var manager = new Manager()) {
-    Log("manager.GetCamera()");
     var getCameraTask = manager.GetCamera();
 
-    Log("SetPosition");
     await stepper.SetPosition(0);
 
     Log("await getCamera");
     var camera = await getCameraTask;
+    Log("camera found");
 
-    Log("SET CompressionLevel");
+    camera.IsoControl = false;
+    camera.Iso = Iso.ISO400;
     camera.CompressionLevel = CompressionLevel.JpegFine;
-    Log("SET AeBracketingStep");
-    camera.AeBracketingStep = AEBracketingStep.Step_2EV;
-    Log("SET SaveMedia");
     camera.SaveMedia = SaveMedia.SDRAM;
-    Log("SET BracketingEnabled");
     camera.BracketingEnabled = true;
-    Log("SET ContinuousShootingNum");
+    camera.AeBracketingStep = AEBracketingStep.Step_2EV;
     camera.ContinuousShootingNum = exposureCount;
-    Log("SET ShootingMode");
-    //camera.ShootingMode = (ShootingMode)0;// ShootingMode.Single;
     camera.ShootingMode = ShootingMode.Continuous_Fast;
+
+    //camera.BracketingEnabled = false; camera.ShootingMode = (ShootingMode)0;// ShootingMode.Single;
 
     var rotation = TimeSpan.Zero;
     while (rotation < TimeSpan.FromHours(12)) {
         Log($"MoveTo({rotation:hhmm})");
         await Task.WhenAll(stepper.MoveTo(rotation), camera.Focus(int.MinValue));
         for (var i = 0; i < focusCount; i++) {
-            Log($"Capture({i})");
             var images = await camera.Capture();
             SaveImages(images, rotation, i);
-            Log($"Focus(20)");
             await camera.Focus(focusStep);
         };
 

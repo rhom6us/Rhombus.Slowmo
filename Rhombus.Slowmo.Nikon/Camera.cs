@@ -32,6 +32,29 @@ public class Camera {
         void ImageReady(NikonDevice sender, NikonImage image) => images.Add(image);
     }
 
+    /// <summary>
+    /// This will select the sensitivity of camera (Shooting menu)
+    /// </summary>
+    public Iso Iso {
+        get => GetEnum<Iso>(eNkMAIDCapability.kNkMAIDCapability_Sensitivity);
+        set => SetEnum(eNkMAIDCapability.kNkMAIDCapability_Sensitivity, value);
+    }
+
+    public bool IsoControl {
+        get => _device.GetBoolean(eNkMAIDCapability.kNkMAIDCapability_IsoControl);
+        set => _device.SetBoolean(eNkMAIDCapability.kNkMAIDCapability_IsoControl, value);
+    }
+
+    public NoiseReductionHighIso NoiseReductionHighIso {
+        get => (NoiseReductionHighIso)_device.GetUnsigned(eNkMAIDCapability.kNkMAIDCapability_NoiseReductionHighISO);
+        set => _device.SetUnsigned(eNkMAIDCapability.kNkMAIDCapability_NoiseReductionHighISO, (uint)value);
+    }
+    /// <summary>  This will set the shutter speed when ISO is controlled automatically (Shooting Menu)  </summary>
+    /// <remarks>When the ExposureMode is Scene Modes or Special Effects Modes or during movie recording or the IsoControl is False this capability cannot be set</remarks>
+    public IsoAutoShutterTime IsoAutoShutterTime {
+        get => (IsoAutoShutterTime)_device.GetUnsigned(eNkMAIDCapability.kNkMAIDCapability_ISOAutoShutterTime);
+        set => _device.SetUnsigned(eNkMAIDCapability.kNkMAIDCapability_ISOAutoShutterTime, (uint)value);
+    }
     public uint ContinuousShootingNum {
         get => _device.GetUnsigned(eNkMAIDCapability.kNkMAIDCapability_ContinuousShootingNum);
         set => _device.SetUnsigned(eNkMAIDCapability.kNkMAIDCapability_ContinuousShootingNum, value);
