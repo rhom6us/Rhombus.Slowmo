@@ -1,0 +1,1 @@
+(?<=((?:[public|unsafe|partial|struct|enum] )+\S+[\r\n\s]*{[\s\S\r\n.]*?}))[\s\S\r\n.]+\1

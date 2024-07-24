@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Native1\**" />
+    <Compile Remove="Native2\**" />
+    <Compile Remove="Native3\**" />
+    <Compile Remove="Native4\**" />
+    <Compile Remove="Native5\**" />
+    <Compile Remove="Native\**" />
+    <EmbeddedResource Remove="Native1\**" />
+    <EmbeddedResource Remove="Native2\**" />
+    <EmbeddedResource Remove="Native3\**" />
+    <EmbeddedResource Remove="Native4\**" />
+    <EmbeddedResource Remove="Native5\**" />
+    <EmbeddedResource Remove="Native\**" />
+    <None Remove="Native1\**" />
+    <None Remove="Native2\**" />
+    <None Remove="Native3\**" />
+    <None Remove="Native4\**" />
+    <None Remove="Native5\**" />
+    <None Remove="Native\**" />
+  </ItemGroup>
+
+</Project>
