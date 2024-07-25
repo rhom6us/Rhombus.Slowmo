@@ -220,7 +220,8 @@ internal static unsafe partial class Methods {
  //   [LibraryImport("libgphoto2"), UnmanagedCallConv(CallConvs = new Type[] { typeof(CallConvCdecl) })] internal static partial int gp_port_set_error([NativeTypeName("GPPort *")] _GPPort* port, [NativeTypeName("const char *")] sbyte* format, __arglist);
 
 
- //   [LibraryImport("libgphoto2"), UnmanagedCallConv(CallConvs = new Type[] { typeof(CallConvCdecl) })] //[return: NativeTypeName("const char *")] internal static partial sbyte* gp_port_get_error([NativeTypeName("GPPort *")] _GPPort* port);
+ //   [LibraryImport("libgphoto2"), UnmanagedCallConv(CallConvs = new Type[] { typeof(CallConvCdecl) })]
+ //[return: NativeTypeName("const char *")] internal static partial sbyte* gp_port_get_error([NativeTypeName("GPPort *")] _GPPort* port);
 
 
  //   [LibraryImport("libgphoto2"), UnmanagedCallConv(CallConvs = new Type[] { typeof(CallConvCdecl) })] internal static partial int gp_port_info_new([NativeTypeName("GPPortInfo *")] _GPPortInfo** info);
@@ -274,7 +275,8 @@ internal static unsafe partial class Methods {
  //   [LibraryImport("libgphoto2"), UnmanagedCallConv(CallConvs = new Type[] { typeof(CallConvCdecl) })] internal static partial int gp_port_info_list_get_info([NativeTypeName("GPPortInfoList *")] _GPPortInfoList* list, int n, [NativeTypeName("GPPortInfo *")] _GPPortInfo** info);
 
 
- //   [LibraryImport("libgphoto2"), UnmanagedCallConv(CallConvs = new Type[] { typeof(CallConvCdecl) })] //[return: NativeTypeName("const char *")] internal static partial sbyte* gp_port_message_codeset([NativeTypeName("const char *")] sbyte* param0);
+ //   [LibraryImport("libgphoto2"), UnmanagedCallConv(CallConvs = new Type[] { typeof(CallConvCdecl) })]
+ //[return: NativeTypeName("const char *")] internal static partial sbyte* gp_port_message_codeset([NativeTypeName("const char *")] sbyte* param0);
 
 
  //   [LibraryImport("libgphoto2"), UnmanagedCallConv(CallConvs = new Type[] { typeof(CallConvCdecl) })] internal static partial int gp_port_init_localedir([NativeTypeName("const char *")] sbyte* localedir);
@@ -332,7 +334,8 @@ internal static unsafe partial class Methods {
  //   [LibraryImport("libgphoto2"), UnmanagedCallConv(CallConvs = new Type[] { typeof(CallConvCdecl) })] internal static partial int gp_abilities_list_get_abilities([NativeTypeName("CameraAbilitiesList *")] _CameraAbilitiesList* list, int index, CameraAbilities* abilities);
 
 
- //   [LibraryImport("libgphoto2"), UnmanagedCallConv(CallConvs = new Type[] { typeof(CallConvCdecl) })] //[return: NativeTypeName("const char *")] internal static partial sbyte* gp_message_codeset([NativeTypeName("const char *")] sbyte* param0);
+ //   [LibraryImport("libgphoto2"), UnmanagedCallConv(CallConvs = new Type[] { typeof(CallConvCdecl) })]
+ //[return: NativeTypeName("const char *")] internal static partial sbyte* gp_message_codeset([NativeTypeName("const char *")] sbyte* param0);
 
 
  //   [LibraryImport("libgphoto2"), UnmanagedCallConv(CallConvs = new Type[] { typeof(CallConvCdecl) })] internal static partial int gp_init_localedir([NativeTypeName("const char *")] sbyte* localedir);
@@ -669,10 +672,12 @@ internal static unsafe partial class Methods {
  //   [LibraryImport("libgphoto2"), UnmanagedCallConv(CallConvs = new Type[] { typeof(CallConvCdecl) })] internal static partial int gp_filesystem_dump([NativeTypeName("CameraFilesystem *")] _CameraFilesystem* fs);
 
 
- //   [LibraryImport("libgphoto2"), UnmanagedCallConv(CallConvs = new Type[] { typeof(CallConvCdecl) })] //[return: NativeTypeName("const char *")] internal static partial sbyte* gp_port_result_as_string(int result);
+ //   [LibraryImport("libgphoto2"), UnmanagedCallConv(CallConvs = new Type[] { typeof(CallConvCdecl) })]
+ //[return: NativeTypeName("const char *")] internal static partial sbyte* gp_port_result_as_string(int result);
 
 
- //   [LibraryImport("libgphoto2"), UnmanagedCallConv(CallConvs = new Type[] { typeof(CallConvCdecl) })] //[return: NativeTypeName("const char *")] internal static partial sbyte* gp_result_as_string(int result);
+ //   [LibraryImport("libgphoto2"), UnmanagedCallConv(CallConvs = new Type[] { typeof(CallConvCdecl) })]
+ //[return: NativeTypeName("const char *")] internal static partial sbyte* gp_result_as_string(int result);
 
 
     
